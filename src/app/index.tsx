@@ -1,22 +1,42 @@
+import { useState } from "react"
 // importação de componentes padrões
-import {View, Text} from "react-native"
+import {View, FlatList} from "react-native"
 // componente Header
 import { Header } from "@/components/header"
 
+import { CATEGORIES } from "@/utils/data/products"
+
 import { CategoryBtn } from "@/components/category-btn"
+
+
+
 
 // função da Home Page
 export default function Home(){
+    const [category, setCategory] = useState(CATEGORIES[0])
+
+    function handleCategorySelected(selectedCategory:string){
+        console.log(category)
+        setCategory(selectedCategory)
+    }
     // toda função retorna a visualização dos componentes
     return(
         <View className="pt-5 pl-5">
-            <Header title="Cardápio" carQuantityItens={12}/>
+            <Header title="Cardápio" carQuantityItens={1}/>
             
-            <View className="flex-row gap-2 mt-0">
-                <CategoryBtn title="Oferta do Dia"/>
-                <CategoryBtn title="Entrega Grátis" isSelected/>
-                <CategoryBtn title="Perto de você"/>
-            </View>
+            <FlatList
+            data={CATEGORIES}
+            keyExtractor={(item) => item}
+            renderItem={({item}) => 
+            <CategoryBtn 
+            title={item} 
+            isSelected={item === category} 
+            onPress={() => handleCategorySelected(item)}/>}
+            horizontal
+            className="mt-5"
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{gap: 12, paddingHorizontal: 20}}
+            />
        
         </View>
         
