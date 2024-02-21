@@ -15,7 +15,7 @@ export function Header({title, carQuantityItens=0}: HeaderProps){
     return(
         <View className="flex-row items-center border-b border-slate-50 pb-2 mx-5">
             <View className="flex-1">
-                <Image source={require('@/assets/logo.png')} className="h-6 w-32" />
+                {/* <Image source={require('@/assets/logo.png')} className="h-6 w-32" /> */}
                 <Text className="text-white  text-2xl font-bold  pt-2" >{title}</Text>
             </View>
 
