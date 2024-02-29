@@ -1,11 +1,12 @@
+// função usada para a mudança de estados de um componente
 import { useState } from "react"
-// importação de componentes padrões
+// View -> funciona como uma <div> / FlatList -> renderiza listas 
 import {View, FlatList} from "react-native"
-// componente Header
+// componente Header -> cabeçalho da nossa página
 import { Header } from "@/components/header"
-
+// variável que armazena os tipos de lanche
 import { CATEGORIES } from "@/utils/data/products"
-
+// 
 import { CategoryBtn } from "@/components/category-btn"
 
 
