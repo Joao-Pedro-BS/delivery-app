@@ -1,4 +1,5 @@
 // SafeAreaView é uma View que se comporta de maneira dinâmica em relação ao sistema operacional
+// especialmente em dispositivos com "notch" ou "barra de status"
 import { SafeAreaView} from "react-native";
 // Slot vai carregar todo o conteúdo do meu arquivo index.tsx
 import { Slot } from "expo-router";
@@ -20,7 +21,7 @@ export default function Layout(){
     if(!fontsLoaded){
         return <Loading/>
     }
-    // retorna os componenetes para a tela
+    // retorna o index dentro de uma safeareaview
     return(
         <SafeAreaView className="bg-slate-900 flex-1">
             <Slot/>
